@@ -1,0 +1,5 @@
+settings:
+    dashboard_custom_tab_pagination_limit:
+        value:
+            title: 'Dashboard custom block items'
+            description: 'Number of items displayed in the Custom table'

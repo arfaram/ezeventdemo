@@ -1,0 +1,16 @@
+services:
+    EzSystems\DemoBundle\Tab\Dashboard\CustomTab:
+        parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
+        #without the factory and User setting integration
+#        arguments:
+#            $defaultPaginationLimit: '$pagination.custom_tab_block$'
+#            $contentTypeIdentifier: '$identifier.custom_tab_block$'
+        tags:
+            - { name: ezplatform.tab, group: dashboard-everyone }
+        factory: 'EzSystems\DemoBundle\Tab\Dashboard\customTabFactory:setTabValue'
+
+    EzSystems\DemoBundle\Tab\Dashboard\CustomTabFactory:
+        autowire: true
+        arguments:
+            $userSettingCustomTabValueIdentifier: 'custom_tab_settings'
+            $contentTypeIdentifier: '$identifier.custom_tab_block$'

@@ -1,0 +1,56 @@
+{% trans_default_domain 'dashboard' %}
+
+{% if data|length %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ 'dashboard.table.name'|trans|desc('Name') }}</th>
+            <th>{{ 'dashboard.table.content_type'|trans|desc('Content Type') }}</th>
+            <th>{{ 'dashboard.table.last_saved'|trans|desc('Last Saved') }}</th>
+            <th class="ez-table__header-cell">{{ 'dashboard.table.version'|trans|desc('Version') }}</th>
+            <th class="ez-table__header-cell">{{ 'dashboard.table.ContentId'|trans|desc('ContentId') }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+            <tr>
+                <td><a href="{{ url('_ez_content_view', { 'contentId': row.contentId }) }}">{{ row.name }}</a></td>
+                <td>{{ row.type }}</td>
+                <td>{{ row.modified|date('M d, Y h:iA') }}</td>
+                <td class="ez-table__cell">{{ row.version }}</td>
+                <td class="ez-table__cell">{{ row.contentId }}</td>
+                <td class="text-center">
+                    <button class="btn btn-icon ez-btn--content-edit"
+                            title="{{ 'dashboard.table.content.edit'|trans|desc('Edit Content') }}"
+                            data-content-id="{{ row.contentId }}"
+                            data-version-no="{{ row.version }}"
+                            data-language-code="{{ row.language }}">
+                        <svg class="ez-icon ez-icon-edit">
+                            <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if pager.haveToPaginate %}
+        <div class="row justify-content-center align-items-center mb-2 mt-2 ez-pagination__spacing">
+            <span class="ez-pagination__text">
+                {{ 'pagination.viewing'|trans({
+                    '%viewing%': pager.currentPageResults|length,
+                    '%total%': pager.nbResults}, 'pagination')|desc('Viewing <strong>%viewing%</strong> out of <strong>%total%</strong> items')|raw }}
+            </span>
+        </div>
+        <div class="row justify-content-center align-items-center ez-pagination__btn">
+            {{ pagerfanta(pager, 'ez', pager_options|merge({
+                'routeParams': {
+                    '_fragment': 'ez-tab-dashboard-anchor-my-custom-block'
+                }
+            })) }}
+        </div>
+    {% endif %}
+{% else %}
+    <p class="ez-table-no-content mb-0 py-0">{{ 'dashboard.tab.my_content.empty'|trans|desc('No content items. Content items you create will appear here') }}</p>
+{% endif %}

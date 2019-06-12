@@ -1,0 +1,17 @@
+parameters:
+    ezsettings.default.pagination.custom_tab_block: 5
+    ezsettings.default.identifier.custom_tab_block: ['product']
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    EzSystems\DemoBundle\Controller\DefaultController: ~
+
+    EzSystems\DemoBundle\UserSetting\Setting\CustomTabSettings:
+        arguments:
+            $customTabPaginationLimit: '$pagination.custom_tab_block$'
+        tags:
+            - { name: 'ezplatform.admin_ui.user_setting.value', identifier: 'custom_tab_settings', priority: 100 }
+            - { name: 'ezplatform.admin_ui.user_setting.form_mapper', identifier: 'custom_tab_settings' }

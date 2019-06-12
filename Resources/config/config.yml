@@ -1,0 +1,3 @@
+# Twig Configuration
+form_themes:
+    - 'EzSystemsDemoBundle:user_setting:form_fields.html.twig'

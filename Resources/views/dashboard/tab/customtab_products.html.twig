@@ -1,0 +1,63 @@
+{% trans_default_domain 'dashboard' %}
+
+<section class="container mt-4">
+    <section class="list-group">
+        <div class="container">
+            <div class="row">
+                {% if pagination|length %}
+                    {% set placeHolderImage = 'http://via.placeholder.com/500x350' %}
+                    {% for row in pagination %}
+                        {% set view_url = path('_ez_content_view', { 'contentId': row.id }) %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                {% if ez_first_filled_image_field_identifier(row) %}
+                                    <img src="{{row.getFieldValue(ez_first_filled_image_field_identifier(row)).uri }}"  style="max-height: 250px;" alt="{{ ez_content_name( row ) }}" />
+                                {% else %}
+                                    <img src="{{ placeHolderImage }}"  alt="{{ ez_content_name( row ) }}" />
+                                {% endif %}
+
+                                <div class="card-body">
+                                    <h4 class="header-link-table"><a href="{{ view_url }}" target="_self" >{{ ez_content_name( row ) }}</a></h4>
+                                    <div class="d-flex justify-content-between button-items-right">
+                                        <div class="btn-group">
+                                            <a target="_self" href="{{ path('_ez_content_view', {'contentId': row.id}) }}">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">  {{ 'View'|trans }}</button>
+                                            </a>
+                                            <button class="btn btn-sm btn-outline-secondary ez-btn--content-edit custom-tab-edit-btn"
+                                                    title="{{ 'dashboard.table.content.edit'|trans|desc('Edit Content') }}"
+                                                    data-content-id="{{ row.id }}"
+                                                    data-version-no="{{ row.versionInfo.versionNo }}"
+                                                    data-language-code="{{ row.versionInfo.initialLanguageCode }}">
+                                                {{ 'Edit'|trans }}
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <p class="ez-table-no-content mb-0 py-0">{{ 'dashboard.tab.my_content.empty'|trans|desc('No content items. Content items you create will appear here') }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% if pager.haveToPaginate %}
+            <div class="row justify-content-center align-items-center mb-2 mt-2 ez-pagination__spacing">
+            <span class="ez-pagination__text">
+                {{ 'pagination.viewing'|trans({
+                    '%viewing%': pager.currentPageResults|length,
+                    '%total%': pager.nbResults}, 'pagination')|desc('Viewing <strong>%viewing%</strong> out of <strong>%total%</strong> items')|raw }}
+            </span>
+            </div>
+            <div class="row justify-content-center align-items-center ez-pagination__btn">
+                {{ pagerfanta(pager, 'ez', pager_options|merge({
+                    'routeParams': {
+                        '_fragment': 'ez-tab-dashboard-anchor-my-custom-block'
+                    }
+                })) }}
+            </div>
+        {% endif %}
+    </section>
+</section>

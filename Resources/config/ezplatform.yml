@@ -1,0 +1,32 @@
+system:
+    admin_group: #or default for all backend
+        #ContentType icons
+        content_type:
+            article:
+                thumbnail: '/bundles/ezplatformadminui/img/ez-logo.svg#logo'
+        # Display only product list in the contentTree when you click this location in UI
+        content_tree_module:
+            contextual_tree_root_location_ids:
+                - 54 # product list
+        #User Preferences
+        user_preferences:
+            allowed_full_date_formats:
+                'M dd, yyyy': 'LLLL dd, yyyy'
+                'dd M yyyy': 'dd LLLL yyyy'
+                'German short format': 'dd.MM.yyyy'
+                'German long format': "cccc 'den', dd MMMM Y"
+        #notification bars timeout
+        notifications:
+            warning:
+                timeout: 5000
+            info:
+                timeout: 5000
+        #inline custom tag example
+        fieldtypes:
+            ezrichtext:
+                custom_tags: [abbreviation]
+    site_group:
+        #ezmatrix custom template
+        field_templates:
+            #- { template: '@ezdesign/fields/ezmatrix/content_fields.html.twig', priority: 10 }
+            - { template: '@EzSystemsDemo/fields/ezmatrix/content_fields.twig', priority: 10 }

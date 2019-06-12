@@ -1,0 +1,25 @@
+{% extends 'bootstrap_4_layout.html.twig' %}
+
+{% trans_default_domain 'user_settings' %}
+
+{%- block _user_setting_update_value_custom_block_widget -%}
+
+    {{ encore_entry_link_tags('demo-bundle-css',null,'demoConfigName') }}
+
+    <div class="custom-user-setting-number">
+
+        {#{{ form_widget(form) }}#}
+
+        {% block integer_widget %}
+            {% set type = type|default('number') %}
+            {{ block('form_widget_simple') }}
+        {% endblock integer_widget %}
+
+
+        <div class="alert ez-alert--info mt-4" role="alert">
+            Custom field template
+        </div>
+
+    </div>
+{%- endblock -%}
+

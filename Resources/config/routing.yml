@@ -1,0 +1,3 @@
+ez_systems_demo_loadContentInfoList:
+    path:     /api
+    defaults: { _controller: EzSystemsDemoBundle:Default:api }

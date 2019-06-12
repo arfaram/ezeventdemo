@@ -1,0 +1,7 @@
+#abbreviation
+ezrichtext:
+    custom_tags:
+        abbreviation:
+            attributes:
+                style:
+                    label: 'Abbreviation!'
