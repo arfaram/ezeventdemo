@@ -1,6 +1,6 @@
 ## Installation
 
- - Add this bundle to src/ folder 
+ - Add the content of this bundle to src/EzSystems/DemoBundle folder 
  - Register the bundle in AppKernel.php
  ```
  new EzSystems\DemoBundle\EzSystemsDemoBundle(),
