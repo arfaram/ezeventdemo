@@ -70,7 +70,7 @@ class CustomTab extends AbstractTab implements OrderedTabInterface
      */
     public function getIdentifier(): string
     {
-        return '';
+        return 'custom_tab';
     }
 
     /**

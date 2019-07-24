@@ -6,3 +6,10 @@ custom_tags:
         attributes:
             style:
                 type: 'string'
+    map:
+        template: '@ezdesign/fields/ezrichtext/custom_tags/map.html.twig'
+        icon: '/bundles/ezplatformadminui/img/ez-icons.svg#pin'
+        is_inline: true
+        attributes:
+            address:
+                type: 'string'

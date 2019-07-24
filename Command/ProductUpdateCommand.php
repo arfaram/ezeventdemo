@@ -76,7 +76,6 @@ class ProductUpdateCommand extends ContainerAwareCommand
                                 'homepage' => 'www.somewhere.com',
                             ]
                         )
-
                     ]
                 )
             );
@@ -85,7 +84,7 @@ class ProductUpdateCommand extends ContainerAwareCommand
             $contentDraft = $contentService->updateContent( $contentDraft->versionInfo, $contentUpdateStruct );
             $content = $contentService->publishVersion( $contentDraft->versionInfo );
             // print out the content
-            print_r( $content );
+
         }
             // Content type or location not found
         catch ( Exceptions\NotFoundException $e )

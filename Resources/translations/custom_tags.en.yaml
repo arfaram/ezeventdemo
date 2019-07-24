@@ -5,3 +5,7 @@ ezrichtext:
             attributes:
                 style:
                     label: 'Abbreviation!'
+        map:
+            attributes:
+                address:
+                    label: 'Address for map'

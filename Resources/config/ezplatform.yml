@@ -24,7 +24,7 @@ system:
         #inline custom tag example
         fieldtypes:
             ezrichtext:
-                custom_tags: [abbreviation]
+                custom_tags: [abbreviation, map]
     site_group:
         #ezmatrix custom template
         field_templates:

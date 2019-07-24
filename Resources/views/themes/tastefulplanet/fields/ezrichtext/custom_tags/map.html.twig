@@ -1,0 +1,3 @@
+{% if params.address is defined %}
+    <a class="googleMapPopUp" rel="nofollow" href="https://maps.google.com.au/maps?q={{ params.address|replace({' ':'+'}) }}" target="_blank">{{ content|raw }} </a>
+{% endif %}
