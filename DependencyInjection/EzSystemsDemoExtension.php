@@ -27,6 +27,7 @@ class EzSystemsDemoExtension extends Extension implements PrependExtensionInterf
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
         $loader->load('dashboard.yml');
+        $loader->load('form.yml');
     }
 
     /**

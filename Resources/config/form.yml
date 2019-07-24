@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    #Listen to form submissions in front, more infos: ezsystems/ezplatform-form-builder/src/lib/Event/Subscriber/HandleFormSubmission.php
+    EzSystems\DemoBundle\Event\Subscriber\HandleFormSubmission:
+        tags:
+            - {name: kernel.event_subscriber}
+
+    #import content form data using API - example
+    EzSystems\DemoBundle\Command\ImportFormDataForContentCommand: ~
