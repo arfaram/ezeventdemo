@@ -1,0 +1,60 @@
+{% if content is defined %}
+
+    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseContentInfo"
+            aria-expanded="true" aria-controls="collapseContentInfo">
+        {{ 'content.info'|trans()|desc('Quick Info') }}
+    </button>
+
+    <div class="collapse show" id="collapseContentInfo">
+
+        {% set content_collection_data_set = get_content_collection_data_set( content ) %}
+
+        {# translations#}
+        {% if content_collection_data_set.translations is defined %}
+            <div>
+                <strong>{{ 'tab.name.translations'|trans()|desc('Translations') }}:</strong>
+
+                {% for translation in content_collection_data_set.translations %}
+                    <a class="badge badge-{% if translation.main %}dark{% else %}light{% endif %}"
+                       href="#">{{ translation.name }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {#Relations#}
+        {% if content_collection_data_set.relations|length > 0 %}
+            {% set view_target = 'relations' %}
+            <a class="badge badge-info btn-modal-launcher" data-toggle="modal"
+               data-target="#view-{{ view_target }}-data-set" href="#" aria-controls="ez-tab-location-view-relations"
+               aria-expanded="">{{ 'content.has.relations'|trans()|desc('Content has relations') }}</a>
+            {% include '@ezdesign/parts/modal/modal_dataset_relations.html.twig' with {
+                relations: content_collection_data_set.relations,
+                contentTypes: content_collection_data_set.contentTypes,
+                headerText: 'tab.relations.related_content'|trans({'%contentName%' : ez_content_name(content)})|desc('Related content (content items used by %contentName%)'),
+                view_target: view_target
+            } %}
+        {% endif %}
+        {% if content_collection_data_set.reverse_relations|length > 0 %}
+            {% set view_target = 'relations_reverse' %}
+            <a class="badge badge-danger btn-modal-launcher" data-toggle="modal"
+               data-target="#view-{{ view_target }}-data-set" href="#" aria-controls="ez-tab-location-view-relations"
+               aria-expanded="">{{ 'content.has.inverse.relations'|trans()|desc('Content has inverse relations') }}</a>
+            {% include '@ezdesign/parts/modal/modal_dataset_relations.html.twig' with {
+                relations: content_collection_data_set.reverse_relations,
+                contentTypes: content_collection_data_set.contentTypes,
+                headerText: 'tab.relations.reverse_relations'|trans({'%contentName%' : ez_content_name(content)})|desc('Reverse relations (content items using %contentName%)'),
+                view_target: view_target
+            } %}
+        {% endif %}
+
+        {#General#}
+        <div>
+            <a class="badge badge-pill" href="#"><strong>{{ 'tab.name.versions'|trans()|desc('Version') }}
+                    :</strong>{{ content.versionInfo.versionNo }}</a>
+            <a class="badge badge-pill" href="#"><strong>{{ 'tab.details.content_id'|trans()|desc('Content ID') }}
+                    :</strong>{{ content.contentInfo.id }}</a>
+            <a class="badge badge-pill" href="#"><strong>{{ 'tab.details.location_id'|trans()|desc('Location ID') }}
+                    :</strong>{{ location.id }}</a>
+        </div>
+    </div>
+{% endif %}

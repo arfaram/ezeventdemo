@@ -1,0 +1,17 @@
+<div class="modal fade ez-notifications-modal show" id="view-{{ view_target }}-data-set" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ headerText }} </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg class="ez-icon ez-icon--medium" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../ez-icons.svg#discard"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ include('@ezdesign/content/tab/relations/table_'~ view_target ~'.html.twig', {'relations': relations}) }}
+            </div>
+        </div>
+    </div>
+</div>

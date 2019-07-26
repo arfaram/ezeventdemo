@@ -15,3 +15,7 @@ services:
         tags:
             - { name: 'ezplatform.admin_ui.user_setting.value', identifier: 'custom_tab_settings', priority: 100 }
             - { name: 'ezplatform.admin_ui.user_setting.form_mapper', identifier: 'custom_tab_settings' }
+
+    EzSystems\DemoBundle\Twig\ContentCollectionDataset:
+        tags:
+            - { name: twig.extension }
