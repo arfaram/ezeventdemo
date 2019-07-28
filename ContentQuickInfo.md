@@ -14,7 +14,7 @@ This example shows you a simple integration in the ezplatform admin UI. In the c
 
 Several Visibility status?
 
-<img src="Resources/doc/quick_info_visibility.png />
+<img src="Resources/doc/quick_info_visibility.png" />
 
 ## Implementation
 
