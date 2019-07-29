@@ -1,3 +1,7 @@
 ez_systems_demo_loadContentInfoList:
     path:     /api
     defaults: { _controller: EzSystemsDemoBundle:Default:api }
+
+url_wildcard_annotation_route:
+    resource: "@EzSystemsDemoBundle/Controller/UrlWildcardController.php"
+    type: annotation

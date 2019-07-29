@@ -8,6 +8,7 @@ services:
         public: false
 
     EzSystems\DemoBundle\Controller\DefaultController: ~
+    EzSystems\DemoBundle\Controller\UrlWildcardController: ~
 
     EzSystems\DemoBundle\UserSetting\Setting\CustomTabSettings:
         arguments:

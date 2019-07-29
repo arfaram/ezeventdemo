@@ -30,3 +30,5 @@ system:
         field_templates:
             #- { template: '@ezdesign/fields/ezmatrix/content_fields.html.twig', priority: 10 }
             - { template: '@EzSystemsDemo/fields/ezmatrix/content_fields.twig', priority: 10 }
+url_wildcards:
+    enabled: true
