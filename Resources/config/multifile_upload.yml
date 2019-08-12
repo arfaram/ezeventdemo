@@ -1,0 +1,61 @@
+parameters:
+##override defaults multiupload mime type. Only videos are able to be uploaded!
+#    ezplatform.multifile_upload.location.default_mappings:
+#        #video
+#        -   mime_types:
+#                - video/avi
+#                - video/mpeg
+#                - video/quicktime
+#                - video/mp4
+#                - application/octet-stream
+#            content_type_identifier: video
+#            content_field_identifier: file
+#            name_field_identifier: name
+#        # Image
+#        -   mime_types:
+#                - image/jpeg
+#                - image/jpg
+#                - image/pjpeg
+#                - image/pjpg
+#                - image/png
+#                - image/bmp
+#                - image/gif
+#                - image/tiff
+#                - image/x-icon
+#                - image/webp
+#            content_type_identifier: image
+#            content_field_identifier: image
+#            name_field_identifier: name
+#        # File
+#        -   mime_types:
+#                - image/svg+xml
+#                - application/msword
+#                - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+#                - application/vnd.ms-excel
+#                - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+#                - application/vnd.ms-powerpoint
+#                - application/vnd.openxmlformats-officedocument.presentationml.presentation
+#                - application/pdf
+#            content_type_identifier: file
+#            content_field_identifier: file
+#            name_field_identifier: name
+#    ezplatform:
+#        multifile_upload:
+#            location:
+#                mappings:
+#                        -   # folder
+#                            content_type_identifier: folder
+#                            mime_type_filter:
+#                                - video/*
+#                                - application/*
+#                            mappings:
+#                                -   # videos
+#                                    mime_types:
+#                                        - video/avi
+#                                        - video/mpeg
+#                                        - video/quicktime
+#                                        - video/mp4
+#                                        - application/octet-stream
+#                                    content_type_identifier: video
+#                                    content_field_identifier: file
+#                                    name_field_identifier: name

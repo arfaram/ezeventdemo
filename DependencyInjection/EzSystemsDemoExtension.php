@@ -28,6 +28,7 @@ class EzSystemsDemoExtension extends Extension implements PrependExtensionInterf
         $loader->load('services.yml');
         $loader->load('dashboard.yml');
         $loader->load('form.yml');
+        $loader->load('multifile_upload.yml');
     }
 
     /**
