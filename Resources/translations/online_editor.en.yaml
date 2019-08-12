@@ -1,0 +1,25 @@
+ezrichtext:
+    classes:
+        class:
+            label: 'Class'
+            #custom atributes / classes
+            #classes:
+            #class:
+            paragraph:
+                label: 'Info Box'
+    attributes:
+        paragraph:
+            border:
+                label: 'Border'
+            border_radius:
+                label: 'Radius'
+            border_style:
+                label: 'Style'
+            background:
+                label: 'Background'
+            box_padding:
+                label: 'Padding'
+            language:
+                label: 'Language'
+            box_blink:
+                label: 'Blink'

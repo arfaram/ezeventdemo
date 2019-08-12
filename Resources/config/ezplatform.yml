@@ -25,6 +25,51 @@ system:
         fieldtypes:
             ezrichtext:
                 custom_tags: [abbreviation, map]
+                #custom attributes coming with v2.5.2
+                attributes:
+                    formatted:
+                        language:
+                            type: choice
+                            choices: ['text', 'php', 'yml', 'javascript']
+                            #default_value: attr2
+                            required: false
+                            multiple: false
+                    paragraph:
+                        border:
+                            type: boolean
+                            default_value: false
+                        border_radius:
+                            type: number
+                            default_value: 0
+                        box_padding:
+                            type: number
+                            default_value: 0
+                        border_style:
+                            type: choice
+                            choices: ['none', 'dotted','dashed', 'solid', 'double']
+                            default_value: 'none'
+                            #required: false
+                            multiple: false
+                        background:
+                            type: choice
+                            choices: ['none', 'light', 'dark', 'yellow']
+                            default_value: 'none'
+                        box_blink:
+                            type: boolean
+                            default_value: false
+                #custom classes
+                classes:
+                    paragraph:
+                        choices: ['none', 'box']
+                        default_value: 'none'
+                        #required: false
+                        multiple: false
+                    formatted:
+                        choices: ['none', 'box-light', 'box-dark', 'box-info', 'box-primary']
+                        default_value: 'none'
+                        #required: false
+                        multiple: false
+
     site_group:
         #ezmatrix custom template
         field_templates:
