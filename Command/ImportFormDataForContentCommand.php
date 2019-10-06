@@ -47,11 +47,11 @@ class ImportFormDataForContentCommand extends ContainerAwareCommand
                 'name' => 'Interest',
                 'value' => ['Adventure', 'Food'],
             ],
-            [
-                'identifier' => 'country',
-                'name' => 'Country',
-                'value' => 'DE',
-            ],
+//            [
+//                'identifier' => 'country',
+//                'name' => 'Country',
+//                'value' => 'DE',
+//            ],
 
         ],
         'contentId' => 238,
