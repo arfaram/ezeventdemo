@@ -5,6 +5,7 @@ namespace EzSystems\DemoBundle\Controller;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\LanguageService;
 use eZ\Publish\API\Repository\SearchService;
+use eZ\Publish\API\Repository\SectionService;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
@@ -31,18 +32,24 @@ class DefaultController extends Controller
      * @var \eZ\Publish\API\Repository\SearchService
      */
     private $searchService;
+    /**
+     * @var \eZ\Publish\API\Repository\SectionService
+     */
+    private $sectionService;
 
     public function __construct(
         ContentService $contentService,
         LocationService $locationService,
         LanguageService $languageService,
-        SearchService $searchService
+        SearchService $searchService,
+        SectionService $sectionService
     )
     {
         $this->contentService = $contentService;
         $this->locationService = $locationService;
         $this->languageService = $languageService;
         $this->searchService = $searchService;
+        $this->sectionService = $sectionService;
     }
 
     /**
@@ -93,6 +100,11 @@ class DefaultController extends Controller
 //        }
 
 //---------------------------------------------------------------------------
+
+        //2.5.3 Changed loadSections method to filter available sections #2707: method to filter the available sections and not throw an exception when the user has no permission to all sections. > 2.5.3 user is redirected to login in front.This change is needed to allow display user a list of section available to him in the administration panel.
+//        $section = $this->sectionService->loadSection(1);
+//        $sections = $this->sectionService->loadSections();
+//        dump($section);
 
         return $this->render('EzSystemsDemoBundle:Default:index.html.twig');
     }
