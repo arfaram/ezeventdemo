@@ -9,6 +9,7 @@ services:
 
     EzSystems\DemoBundle\Controller\DefaultController: ~
     EzSystems\DemoBundle\Controller\UrlWildcardController: ~
+    EzSystems\DemoBundle\Controller\RenderLandingPageController: ~
 
     EzSystems\DemoBundle\UserSetting\Setting\CustomTabSettings:
         arguments:
