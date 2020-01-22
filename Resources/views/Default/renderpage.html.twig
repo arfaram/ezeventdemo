@@ -1,0 +1,12 @@
+{% extends "@ezdesign/pagelayout.html.twig" %}
+
+{% block content %}
+    {# Option1:  let ez_render_field take about redering #}
+    <section class="content-type-landing-page full-view">
+        {{ ez_render_field(lpcontent, 'page') }}
+    </section>
+    {# Option2: do it your self, add some parameters from the ViewController#}
+    {% set pageField = ez_field_value(lpcontent,'page') %}
+    {% set zones = pageField.getPage().getZones() %}
+    {% include  layoutDefinition.template with {'zones': zones}  %}
+{% endblock %}

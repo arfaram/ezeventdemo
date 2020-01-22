@@ -5,3 +5,7 @@ ez_systems_demo_loadContentInfoList:
 url_wildcard_annotation_route:
     resource: "@EzSystemsDemoBundle/Controller/UrlWildcardController.php"
     type: annotation
+
+renderpage_route:
+    resource: "@EzSystemsDemoBundle/Controller/RenderLandingPageController.php"
+    type: annotation
