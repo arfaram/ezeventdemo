@@ -1,2 +1,3 @@
 parameters:
     ezsettings.default.siteaccess_settings.header_content_id: ~
+    ezsettings.default.pagination.content_type_limit: 30
