@@ -42,7 +42,7 @@
                 box_blink = box[i].dataset.ezattributeBox_blink;
                 thisBox = box[i];
                 if(box_blink){
-                    box[i].style.borderColor = "#f51717";
+                    box[i].style.borderColor = "#EEEEEE";
                     function blink_text(thisBox) {
                         $('[data-ezattribute-box_blink="true"]').fadeOut(500);
                         $('[data-ezattribute-box_blink="true"]').fadeIn(500);
