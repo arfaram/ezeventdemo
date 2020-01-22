@@ -57,7 +57,7 @@ class ProductUpdateCommand extends ContainerAwareCommand
 
             // instantiate a content update struct and set the new fields
             $contentUpdateStruct = $contentService->newContentUpdateStruct();
-            $contentUpdateStruct->initialLanguageCode = 'eng-GB'; // set language for new version
+            //$contentUpdateStruct->initialLanguageCode = 'eng-GB'; // set language for new version
 
             //// ! CHANGES WITH YOUR COLUMN IDENTIFIERS
             ///  ! YOUR FIELDTYPE IDENTIFIER
@@ -69,20 +69,40 @@ class ProductUpdateCommand extends ContainerAwareCommand
                     [
                         new Row(
                             [
-                                'store_name' => 'somewhere',
+                                'store_name' => 'alnatura',
                                 'city' => 'Liverpool',
-                                'address' => 'at the corner',
-                                'zip_code' => '54321',
-                                'homepage' => 'www.somewhere.com',
+                                'address' => 'streer1',
+                                'zip_code' => '09321',
+                                'homepage' => 'www.al.com',
                             ]
                         )
                     ]
-                )
+                ),
+                'eng-GB'
             );
+
+            $contentUpdateStruct->setField(
+                'stores',
+                new Value(
+                    [
+                        new Row(
+                            [
+                                'store_name' => 'alnatura',
+                                'city' => 'cologne',
+                                'address' => 'strasse 1',
+                                'zip_code' => '54321',
+                                'homepage' => 'www.al.de',
+                            ]
+                        )
+                    ]
+                ),
+                'ger-DE'
+            );
+
 
             // update and publish draft
             $contentDraft = $contentService->updateContent( $contentDraft->versionInfo, $contentUpdateStruct );
-            $content = $contentService->publishVersion( $contentDraft->versionInfo );
+            $content = $contentService->publishVersion( $contentDraft->versionInfo,['eng-GB','ger-DE']);
             // print out the content
 
         }
