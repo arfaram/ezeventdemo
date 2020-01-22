@@ -27,6 +27,15 @@ system:
                 custom_tags: [abbreviation, map]
                 #custom attributes coming with v2.5.2
                 attributes:
+                    embedimage:
+                        caption:
+                            type: choice
+                            choices: ['false', 'true']
+                            default_value: false
+                            multiple: false
+                        fade-duration:
+                            type: number
+                            default_value: 1
                     formatted:
                         language:
                             type: choice
@@ -69,11 +78,22 @@ system:
                         default_value: 'none'
                         #required: false
                         multiple: false
+                    embedimage:
+                        choices: ['none', 'light-box']
+                        default_value: 'none'
+                        multiple: false
 
     site_group:
         #ezmatrix custom template
         field_templates:
             #- { template: '@ezdesign/fields/ezmatrix/content_fields.html.twig', priority: 10 }
             - { template: '@EzSystemsDemo/fields/ezmatrix/content_fields.twig', priority: 10 }
+        #view for embed images using custom attributes and classes:
+#        content_view:
+#            embed:
+#                image_embed:
+#                    template: "@ezdesign/fields/ezrichtext/custom_attributes/image.html.twig"
+#                    match:
+#                        Identifier\ContentType: [image]
 url_wildcards:
     enabled: true
